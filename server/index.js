@@ -1,10 +1,10 @@
-const express = require('express')
-const app = express()
-const port = 3000
-const path = require('path');
+const X = require('express')
+const APP = X()
+const PORT = 3000
+const PATH = require('path');
 
-app.use(express.static(path.join(__dirname, '../wwwroot')));
+APP.use(X.static(PATH.join(__dirname, '../public')));
 
-app.listen(port, () => {
-    console.log(`Webshop running at http://localhost:${port}`)
+APP.listen(PORT, () => {
+    console.log(`Webshop running at http://localhost:${PORT}`)
 })
