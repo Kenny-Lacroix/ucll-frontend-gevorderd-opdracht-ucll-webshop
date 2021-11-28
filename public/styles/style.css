@@ -3,7 +3,6 @@
 }
 .navbar {
   background-color: var(--ucllRoze);
-  height: 6.5vh;
 }
 .card {
   margin: 15px 15px 15px 15px;
@@ -14,7 +13,6 @@
   border-right-style: solid;
   border-color: black;
   border-width: 2px;
-  height: 93.5vh;
 }
 #shopArticles {
   padding-top: 10px;
