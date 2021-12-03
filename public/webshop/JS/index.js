@@ -1,4 +1,4 @@
-import { shoppingItem } from '/JS/shoppingItem.js';
+import { shoppingItem } from './shoppingItem.js';
 let shoppingItems = [];
 
 for (let item = 0; item < 15; item++) {
