@@ -13,7 +13,6 @@ const generateItems = (shoppingItemNames) => {
         cardsHTML += shoppingItems[item].createHTML();
     }
     document.querySelector("#shoppingItems").innerHTML = cardsHTML;
-    console.log(shoppingItems);
     addEvents();
 }
 
@@ -27,7 +26,9 @@ const addEvents = () => {
 const addToCart = (item) => {
     let niceName = item.ItemName.replace(/ /g, "_");
     let amount = document.querySelector(`#inp${niceName}`).value;
-
+    //Verify if there are already items. if not add the first one
+    //if there are already items verify if the one you want to add already exists
+    //if not add it
     if (shoppingCart.length > 0) {
         let itemExists = false;
         shoppingCart.map((cartItem) => {
@@ -54,11 +55,13 @@ const updateShoppingCart = () => {
     // calculate shopping amount
     let shoppingTotal = 0
     let articleTotal = 0;
+
     shoppingCart.map((cartItem) => {
         articleTotal += (cartItem.amount * cartItem.item.ItemPrice)
     });
     shoppingTotal = (shippingFee + articleTotal);
 
+    //Round to 2 decimals
     articleTotal = articleTotal.toFixed(2);
     shoppingTotal = shoppingTotal.toFixed(2);
 
@@ -72,6 +75,7 @@ const updateShoppingCart = () => {
         <p>${cartItem.item.ItemPrice}</p>
         </div>`
     });
+
     //Update HTML
     let htmlString = /*html*/`
         <div class="card">
@@ -95,7 +99,6 @@ const updateShoppingCart = () => {
     `;
 
     document.querySelector("#ShoppingCart").innerHTML = htmlString;
-    console.log(shoppingTotal);
 }
 
 /* ---CODE---*/
