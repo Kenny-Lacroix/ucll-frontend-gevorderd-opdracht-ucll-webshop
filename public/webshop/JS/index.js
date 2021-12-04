@@ -14,6 +14,7 @@ const generateItems = (shoppingItemNames) => {
     }
     document.querySelector("#shoppingItems").innerHTML = cardsHTML;
     console.log(shoppingItems);
+    addEvents();
 }
 
 const addEvents = () => {
@@ -61,16 +62,17 @@ const updateShoppingCart = () => {
     articleTotal = articleTotal.toFixed(2);
     shoppingTotal = shoppingTotal.toFixed(2);
 
-    //Update HTML
+    //Create itemHTML
     let articles = "";
     shoppingCart.map((cartItem) => {
         articles += /*html*/`    
         <div class="d-flex align-items-center justify-content-between">
-            <p>${cartItem.amount}</p>
-            <p>${cartItem.item.ItemName}</p>
-            <p>${cartItem.item.ItemPrice}</p>
+        <p>${cartItem.amount}</p>
+        <p>${cartItem.item.ItemName}</p>
+        <p>${cartItem.item.ItemPrice}</p>
         </div>`
     });
+    //Update HTML
     let htmlString = /*html*/`
         <div class="card">
             <div class="card-body">
@@ -100,4 +102,3 @@ const updateShoppingCart = () => {
 
 let itemNames = ["Paraplu", "Parker Pen", "A4 Notitieblok", "Dopper Drinkbus", "UCLL ballonnen", "Laser Pointer", "Balpen", "Koeltas"]
 generateItems(itemNames);
-addEvents();
