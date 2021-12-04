@@ -17,3 +17,12 @@
 #shopArticles {
   padding-top: 10px;
 }
+
+.quantityPicker {
+  width: 55px;
+  height: 30px;
+}
+
+.buttongroup {
+  width: 105px;
+}

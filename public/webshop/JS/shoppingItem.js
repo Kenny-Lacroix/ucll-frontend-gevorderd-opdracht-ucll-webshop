@@ -17,6 +17,9 @@ export class shoppingItem {
         }
         this._ItemName = value;
     }
+    get ItemName() {
+        return this._ItemName
+    }
     /**
      * @param {number} value
      */
@@ -25,11 +28,14 @@ export class shoppingItem {
             console.log("ItemPrice must be filled in")
             return
         }
-        if (!isNaN(value)) {
+        if (isNaN(value)) {
             console.log("ItemPrice must be a number")
             return
         }
         this._ItemPrice = value;
+    }
+    get ItemPrice() {
+        return this._ItemPrice
     }
     /**
      * @param { value: string; }
@@ -41,11 +47,17 @@ export class shoppingItem {
         }
         this._ItemDescription = value;
     }
+    get ItemDescription() {
+        return this._ItemDescription
+    }
     /**
      * @param {any} value
      */
     set ItemPicture(value) {
         this._ItemPicture = value;
+    }
+    get ItemPicture() {
+        return this._ItemPicture
     }
     /**
      * @param {string} value
@@ -56,5 +68,35 @@ export class shoppingItem {
             return
         }
         this._ItemLabel = value;
+    }
+    get ItemLabel() {
+        return this._ItemLabel
+    }
+
+    createHTML() {
+        let niceName = this.ItemName.replace(/ /g, "_");
+        let htmlString = /*html*/`
+            <div class="card" style="width: 18rem">
+                <div class="card-body">
+                    <div class="d-flex align-items-center justify-content-between">
+                        <h5 class="card-title">${this.ItemName}</h5>
+                        <h5 class="card-title">€${this.ItemPrice}</h5>
+                    </div>
+                    <img
+                        src="images/${this.ItemPicture}"
+                        class="card-img-top"
+                        alt="${this.ItemName}"
+                    />
+                    <p class="card-text">${this.ItemDescription}</p>
+                    <div class="d-flex align-items-center justify-content-between">
+                        <span class="badge rounded-pill bg-danger">${this.ItemLabel}</span>
+                        <a  class="btn btn-primary d-flex buttongroup justify-content-between">
+                            <input type="number" id="inp${niceName}" class="form-control quantityPicker" min="1" value="1"/>
+                            <i id="btn${niceName}" class="bi bi-cart-plus-fill"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>`
+        return htmlString
     }
 }
