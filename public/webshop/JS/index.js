@@ -100,5 +100,5 @@ const updateShoppingCart = () => {
 
 /* ---CODE---*/
 
-let itemNames = ["Paraplu", "Parker Pen", "A4 Notitieblok", "Dopper Drinkbus", "UCLL ballonnen", "Laser Pointer", "Balpen", "Koeltas"]
+let itemNames = ["Paraplu", "Parker Pen", "A4 Notitieblok", "Dopper Drinkbus", "UCLL ballonnen", "Laser Pointer", "Brooddoos", "Koeltas"]
 generateItems(itemNames);
